@@ -128,3 +128,27 @@ class Stack(Task):
             return -np.array((d > self.distance_threshold), dtype=np.float32)
         else:
             return -d.astype(np.float32)
+        
+        
+class StackPredefinedPositions(Stack):
+    def __init__(
+        self,
+        sim,
+        reward_type,
+        goal1,
+        goal2,
+        obj1,
+        obj2
+    ) -> None:
+        super().__init__(sim, reward_type=reward_type)
+        self.goal1 = goal1.copy()
+        self.goal2 = goal2.copy()
+        self.obj1 = obj1.copy()
+        self.obj2 = obj2.copy()
+
+    def _sample_goal(self) -> np.ndarray:
+        return np.concatenate((self.goal1, self.goal2))
+
+    def _sample_objects(self) -> Tuple[np.ndarray, np.ndarray]:
+        # if distance(object1_position, object2_position) > 0.1:
+        return self.obj1, self.obj2

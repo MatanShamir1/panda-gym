@@ -95,3 +95,22 @@ class Push(Task):
             return -np.array(d > self.distance_threshold, dtype=np.float32)
         else:
             return -d.astype(np.float32)
+        
+class PushPredefinedPositions(Push):
+    def __init__(
+        self,
+        sim,
+        reward_type,
+        goal,
+        obj
+    ) -> None:
+        super().__init__(sim, reward_type=reward_type)
+        self.goal = goal.copy()
+        self.obj = obj.copy()
+
+    def _sample_goal(self) -> np.ndarray:
+        return self.goal
+
+    def _sample_object(self) -> np.ndarray:
+        # if distance(object1_position, object2_position) > 0.1:
+        return self.obj
