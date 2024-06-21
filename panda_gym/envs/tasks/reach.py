@@ -62,3 +62,17 @@ class Reach(Task):
             return -np.array(d > self.distance_threshold, dtype=np.float32)
         else:
             return -d.astype(np.float32)
+
+class ReachPredefinedPositions(Reach):
+    def __init__(
+        self,
+        sim,
+        reward_type,
+        get_ee_position,
+        goal
+    ) -> None:
+        super().__init__(sim, reward_type=reward_type, get_ee_position=get_ee_position)
+        self.goal = goal.copy()
+
+    def _sample_goal(self) -> np.ndarray:
+        return self.goal

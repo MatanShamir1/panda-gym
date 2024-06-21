@@ -39,5 +39,63 @@ register(
     entry_point=f"panda_gym.envs:PandaPushSimpleEnv",
     kwargs={"reward_type": "dense", "control_type": "joints", "goal": np.array([-0.05, 0, object_size / 2]),
                                                               "obj": np.array([0.05, 0, object_size / 2])},
-    max_episode_steps=500
+    max_episode_steps=50
 )
+
+### START OF BASE GOALS ###
+register(
+    id=f"PandaReachSimple-g-m01xm01-v3",
+    entry_point=f"panda_gym.envs:PandaReachSimpleEnv",
+    kwargs={"reward_type": "dense", "control_type": "joints", "goal": np.array([-0.15, -0.15, object_size / 2])},
+    max_episode_steps=50
+)
+
+# register(
+#     id=f"PandaReachSimple-b2-v3",
+#     entry_point=f"panda_gym.envs:PandaReachSimpleEnv",
+#     kwargs={"reward_type": "dense", "control_type": "joints", "goal": np.array([0.15, 0.15, object_size / 2])},
+#     max_episode_steps=50
+# )
+
+# register(
+#     id=f"PandaReachSimple-b3-v3",
+#     entry_point=f"panda_gym.envs:PandaReachSimpleEnv",
+#     kwargs={"reward_type": "dense", "control_type": "joints", "goal": np.array([0.15, -0.15, object_size / 2])},
+#     max_episode_steps=50
+# )
+
+# register(
+#     id=f"PandaReachSimple-b4-v3",
+#     entry_point=f"panda_gym.envs:PandaReachSimpleEnv",
+#     kwargs={"reward_type": "dense", "control_type": "joints", "goal": np.array([-0.15, 0.15, object_size / 2])},
+#     max_episode_steps=50
+# )
+
+# ### START OF DYNAMIC GOALS ###
+# register(
+#     id=f"PandaReachSimple-g-m01xm01-v3",
+#     entry_point=f"panda_gym.envs:PandaReachSimpleEnv",
+#     kwargs={"reward_type": "dense", "control_type": "joints", "goal": np.array([-0.15, -0.15, object_size / 2])},
+#     max_episode_steps=50
+# )
+
+# register(
+#     id=f"PandaReachSimple-g-m01xm01-v3",
+#     entry_point=f"panda_gym.envs:PandaReachSimpleEnv",
+#     kwargs={"reward_type": "dense", "control_type": "joints", "goal": np.array([0.15, 0.15, object_size / 2])},
+#     max_episode_steps=50
+# )
+
+# register(
+#     id=f"PandaReachSimple-g-m01xm01-v3",
+#     entry_point=f"panda_gym.envs:PandaReachSimpleEnv",
+#     kwargs={"reward_type": "dense", "control_type": "joints", "goal": np.array([0.15, -0.15, object_size / 2])},
+#     max_episode_steps=50
+# )
+
+# register(
+#     id=f"PandaReachSimple-g-m01xm01-v3",
+#     entry_point=f"panda_gym.envs:PandaReachSimpleEnv",
+#     kwargs={"reward_type": "dense", "control_type": "joints", "goal": np.array([-0.15, 0.15, object_size / 2])},
+#     max_episode_steps=50
+# )
